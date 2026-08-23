@@ -1,4 +1,4 @@
-import { classMerge } from "../utils/ClassMerge"
+import { classMerge } from "../utils/classMerge"
 
 type Props = React.ComponentProps<"button"> & {
     isLoading?: boolean,
@@ -19,8 +19,9 @@ export function Button({children, isLoading, type="button", variant = "base", cl
             type={type}
             disabled={isLoading}
             className={classMerge([
-                "flex items-center justify-center bg-green-100 rounded-lg text-white cursor-pointer hover:bg-green-200 transition ease-linear disabled:opacity-50 disabled:cursor-progress",
+                "flex items-center justify-center bg-green-100 rounded-lg text-white cursor-pointer hover:bg-green-200 transition ease-linear disabled:opacity-50",
                 variants.button[variant],
+                isLoading && "disabled:cursor-progress", 
                 className
             ])}
             {...rest}
