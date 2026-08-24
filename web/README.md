@@ -1,75 +1,94 @@
-# React + TypeScript + Vite
+# Refund Web 💸
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O **Refund Web** é um projeto de estudo sobre uma plataforma moderna e responsiva desenvolvida para simplificar e organizar o fluxo de solicitações e aprovações de reembolsos corporativos. O sistema atende a duas principais personas (colaboradores e gestores)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Funcionalidades
 
-## React Compiler
+### 👤 Perfis de Acesso
+- **Colaborador (Employee):**
+  - Solicitação de reembolsos preenchendo o nome da despesa, valor e categoria.
+  - Upload de comprovantes/recibos de pagamento de forma simples.
+- **Gestor (Manager):**
+  - Painel de controle (Dashboard) com todas as solicitações registradas.
+  - Barra de pesquisa para filtrar solicitações pelo nome do colaborador.
+  - Paginação inteligente para controle eficiente de grandes volumes de dados.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 💼 Detalhes de Despesas
+Categorização automática com suporte a ícones específicos para:
+- 🚗 Transporte
+- 🍔 Alimentação
+- 🏨 Hospedagem
+- 🛠️ Serviços
+- ➕ Outros
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Tecnologias Utilizadas
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Este projeto foi construído utilizando as tecnologias mais modernas do ecossistema front-end:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **[React 19](https://react.dev/):** Biblioteca para construção de interfaces dinâmicas e baseadas em componentes.
+- **[TypeScript](https://www.typescriptlang.org/):** Tipagem estática para maior segurança e produtividade no desenvolvimento.
+- **[Vite](https://vite.dev/):** Ferramenta de build extremamente rápida para o ecossistema web moderna.
+- **[Tailwind CSS v4](https://tailwindcss.com/):** Framework utilitário de CSS de alta performance com o novo plugin `@tailwindcss/vite`.
+- **[React Router v8](https://reactrouter.com/):** Gerenciamento de rotas e navegação declarativa da aplicação.
+- **[clsx](https://github.com/lukeed/clsx) & [tailwind-merge](https://github.com/dcastil/tailwind-merge):** Combinação e fusão eficiente de classes do Tailwind CSS de forma condicional.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
 
+## 📁 Estrutura de Pastas
+
+A estrutura do projeto está organizada de forma modular e escalável:
+
+```text
+src/
+├── assets/         # Recursos estáticos (Logos, Ícones SVG)
+├── components/     # Componentes reutilizáveis (Button, Input, Header, Upload, etc.)
+├── pages/          # Páginas da aplicação (Dashboard, Refund, SignIn, SignUp, etc.)
+├── routes/         # Configurações de rotas e separação de rotas por perfis (Auth, Employee, Manager)
+└── utils/          # Funções utilitárias (Formatação de moeda, categorias de reembolso, etc.)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 💻 Como Executar o Projeto
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Siga os passos abaixo para rodar a aplicação localmente no seu computador.
 
-```
+### Pré-requisitos
+Certifique-se de ter instalado em sua máquina:
+- [Node.js](https://nodejs.org/) (versão LTS recomendada)
+- Gerenciador de pacotes (npm, yarn, pnpm ou bun)
+
+### Passo a Passo
+
+1. **Clonar o repositório:**
+   ```bash
+   git clone <url-do-repositorio>
+   cd refund2/web
+   ```
+
+2. **Instalar as dependências:**
+   ```bash
+   npm install
+   ```
+
+3. **Iniciar o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
+   *O servidor será iniciado por padrão em `http://localhost:5173/`.*
+
+4. **Gerar a build de produção:**
+   ```bash
+   npm run build
+   ```
+
+5. **Executar o Linter (Análise estática de código):**
+   ```bash
+   npm run lint
+   ```
+
+---
